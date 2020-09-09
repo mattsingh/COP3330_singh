@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Encrypter {
   private String encrypt(String plaintext) {
@@ -7,9 +6,12 @@ public class Encrypter {
 
     for(int i = 0; i < arr.length; i++)
       arr[i] = (arr[i] + 7) % 10;
+
     arr = swap(arr);
-    return Arrays.toString(arr);
+
+    return toString(arr);
   }
+
   private int[] swap(int[] arr) {
     int temp;
     for(int i = 0; i + 2 < arr.length; i++) {
@@ -19,12 +21,21 @@ public class Encrypter {
     }
     return arr;
   }
+
   private int[] stringToIntArray(String str) {
-    int[] arr = new int[4];
+    int[] arr = new int[str.length()];
     for(int i = 0; i < str.length(); i++)
       arr[i] = Integer.parseInt(str.substring(i, i + 1));
     return arr;
   }
+
+  private String toString(int[] arr) {
+    String str = "";
+    for(int i : arr)
+      str = str + i;
+    return str;
+  }
+
   public static void main(String[] args){
     Encrypter e = new Encrypter();
     Scanner in = new Scanner(System.in);
