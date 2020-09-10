@@ -6,19 +6,18 @@ public class Decrypter {
       arr[i] = (arr[i] - 7 + 10) % 10;
     }
 
-    arr = swap(arr);
+    swap(arr);
 
     return toString(arr);
   }
 
-  private int[] swap(int[] arr) {
+  private void swap(int[] arr) {
     int temp;
     for(int i = 0; i + 2 < arr.length; i++) {
       temp = arr[i];
       arr[i] = arr[i + 2];
       arr[i + 2] = temp;
     }
-    return arr;
   }
 
   private int[] stringToIntArray(String str) {

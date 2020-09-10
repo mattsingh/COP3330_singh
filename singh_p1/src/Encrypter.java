@@ -7,19 +7,18 @@ public class Encrypter {
     for(int i = 0; i < arr.length; i++)
       arr[i] = (arr[i] + 7) % 10;
 
-    arr = swap(arr);
+    swap(arr);
 
     return toString(arr);
   }
 
-  private int[] swap(int[] arr) {
+  private void swap(int[] arr) {
     int temp;
     for(int i = 0; i + 2 < arr.length; i++) {
       temp = arr[i];
       arr[i] = arr[i + 2];
       arr[i + 2] = temp;
     }
-    return arr;
   }
 
   private int[] stringToIntArray(String str) {
@@ -40,6 +39,7 @@ public class Encrypter {
     Encrypter e = new Encrypter();
     Decrypter d = new Decrypter();
     Scanner in = new Scanner(System.in);
+    System.out.print("Enter a four-digit integer: ");
     String str = in.next();
     System.out.println("Plaintext: " + str);
     System.out.println("Ciphertext: " + e.encrypt(str));
