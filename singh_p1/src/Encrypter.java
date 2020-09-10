@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Encrypter {
-  private String encrypt(String plaintext) {
+  public String encrypt(String plaintext) {
     int[] arr = stringToIntArray(plaintext);
 
     for(int i = 0; i < arr.length; i++)
@@ -38,10 +38,13 @@ public class Encrypter {
 
   public static void main(String[] args){
     Encrypter e = new Encrypter();
+    Decrypter d = new Decrypter();
     Scanner in = new Scanner(System.in);
     String str = in.next();
     System.out.println("Plaintext: " + str);
     System.out.println("Ciphertext: " + e.encrypt(str));
+    System.out.println("Decrypted CipherText: " + d.decrypt(e.encrypt(str)));
+
     in.close();
   }
 }
