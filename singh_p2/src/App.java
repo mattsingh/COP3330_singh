@@ -20,23 +20,34 @@ public class App {
     displayBmiStatistics(bmiData);
   }
 
+  private static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData) {
+    double total = 0;
+    for(BodyMassIndex i : bmiData)
+      total += i.bmi;
+    System.out.println("The BMI Average is " + total / bmiData.size());
+  }
+
+  private static void displayBmiInfo(BodyMassIndex bmi) {
+    System.out.println("Body Mass Index: " + bmi.bmi);
+  }
+
   private static double getUserWeight() {
-    System.out.print("Enter your weight: ");
+    System.out.print("Enter your weight (pounds) : ");
     return in.nextDouble();
   }
 
   private static double getUserHeight() {
-    System.out.print("Enter your height: ");
+    System.out.print("Enter your height (inches) : ");
     return in.nextDouble();
   }
 
   private static boolean moreInput() {
-    String input = null;
-    while (input != "Y" || input != "N")
-      input = in.nextLine();
-    if (input == "Y")
-      return true;
-    else
-      return false;
+    System.out.print("Enter \"Y\" or \"N\": ");
+    String input = in.next();
+    while (!("Y".equals(input) || "N".equals(input))) {
+      System.out.println("Invalid");
+      input = in.next();
+    }
+    return input.equals("Y");
   }
 }
