@@ -24,11 +24,12 @@ public class App {
     double total = 0;
     for(BodyMassIndex i : bmiData)
       total += i.bmi;
-    System.out.println("The BMI Average is " + total / bmiData.size());
+    System.out.printf("The BMI Average is %.2f\n", total / bmiData.size());
   }
 
   private static void displayBmiInfo(BodyMassIndex bmi) {
-    System.out.println("Body Mass Index: " + bmi.bmi);
+    System.out.printf("Body Mass Index: %.2f\n", bmi.bmi);
+    System.out.println("BMI Category: " + bmi.category);
   }
 
   private static double getUserWeight() {
@@ -58,6 +59,7 @@ public class App {
     String input = in.next();
     while (!("Y".equals(input) || "N".equals(input))) {
       System.out.println("Invalid");
+      System.out.print("Enter \"Y\" or \"N\": ");
       input = in.next();
     }
     return input.equals("Y");
