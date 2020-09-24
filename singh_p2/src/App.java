@@ -33,12 +33,24 @@ public class App {
 
   private static double getUserWeight() {
     System.out.print("Enter your weight (pounds) : ");
-    return in.nextDouble();
+    double input = in.nextDouble();
+    while (input < 0) {
+      System.out.println("Invalid");
+      System.out.print("Enter your weight (pounds) : ");
+      input = in.nextDouble();
+    }
+    return input;
   }
 
   private static double getUserHeight() {
     System.out.print("Enter your height (inches) : ");
-    return in.nextDouble();
+    double input = in.nextDouble();
+    while (input < 0) {
+      System.out.println("Invalid");
+      System.out.print("Enter your height (inches) : ");
+      input = in.nextDouble();
+    }
+    return input;
   }
 
   private static boolean moreInput() {
