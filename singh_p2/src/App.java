@@ -20,6 +20,16 @@ public class App {
     displayBmiStatistics(bmiData);
   }
 
+  private static double getUserWeight() {
+    System.out.print("Enter your weight: ");
+    return in.nextDouble();
+  }
+
+  private static double getUserHeight() {
+    System.out.print("Enter your height: ");
+    return in.nextDouble();
+  }
+
   private static boolean moreInput() {
     String input = null;
     while (input != "Y" || input != "N")
