@@ -33,11 +33,11 @@ public class App {
   }
 
   private static double getUserWeight() {
-    System.out.print("Enter your weight (pounds) : ");
+    System.out.print("Enter your weight (pounds): ");
     double input = in.nextDouble();
     while (input < 0) {
       System.out.println("Invalid");
-      System.out.print("Enter your weight (pounds) : ");
+      System.out.print("Enter your weight (pounds): ");
       input = in.nextDouble();
     }
     return input;
