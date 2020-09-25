@@ -55,11 +55,11 @@ public class App {
   }
 
   private static boolean moreInput() {
-    System.out.print("Enter \"Y\" or \"N\": ");
+    System.out.print("Enter \"Y\" to continue or \"N\" to stop: ");
     String input = in.next();
     while (!("Y".equals(input) || "N".equals(input))) {
       System.out.println("Invalid");
-      System.out.print("Enter \"Y\" or \"N\": ");
+      System.out.print("Enter \"Y\" to continue or \"N\" to stop: ");
       input = in.next();
     }
     return input.equals("Y");
