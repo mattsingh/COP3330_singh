@@ -7,11 +7,11 @@ public class BodyMassIndex {
   public BodyMassIndex(double height, double weight) {
     this.height = height;
     this.weight = weight;
-    this.bmi = calculateBMI();
+    calculateBMI();
     calculateCategory();
   }
 
-  private void calculateCategory() {
+  public void calculateCategory() {
     if(bmi < 18.5)
       category = "Underweight";
     else if(bmi < 25)
@@ -22,10 +22,7 @@ public class BodyMassIndex {
       category = "Obesity";
   }
 
-  private double calculateBMI() {
-    return 703 * weight / Math.pow(height, 2);
+  public void calculateBMI() {
+    bmi = 703 * weight / Math.pow(height, 2);
   }
-
-
-
 }
