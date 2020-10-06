@@ -1,5 +1,5 @@
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ShapeTest {
   @Test
@@ -70,7 +70,7 @@ public class ShapeTest {
   
   @Test
   public void testCubeArea2() {
-    Shape shape = new Cube(6.5);
+    Shape shape = new Cube(0.5);
     assertEquals(1.5, shape.getArea());
   }
   
