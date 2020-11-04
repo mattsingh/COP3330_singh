@@ -10,8 +10,17 @@ public class TaskItem {
   private LocalDate dueDate;
   private boolean completed;
 
-  public TaskItem() {
-    completed = false;
+  public TaskItem(String title, String description, LocalDate dueDate) {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.completed = false;
+  }
+
+  public static TaskItem createTaskItem() {
+    String title;
+    String description;
+    LocalDate dueDate;
 
     System.out.print("Task title: ");
     title = in.nextLine();
@@ -27,6 +36,8 @@ public class TaskItem {
       }
     }
     System.out.println();
+
+    return new TaskItem(title, description, dueDate);
   }
 
   @Override

@@ -11,7 +11,7 @@ public class TaskList {
   }
 
   public void add() {
-    tasks.add(new TaskItem());
+    tasks.add(TaskItem.createTaskItem());
   }
 
   public TaskItem edit(int index) {
