@@ -62,6 +62,7 @@ public class App {
       switch(input) {
         case 1:
           list.print();
+          in.nextLine();
           break;
         case 2:
           list.add();
