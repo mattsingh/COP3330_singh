@@ -61,6 +61,7 @@ public class App {
 
       switch(input) {
         case 1:
+          in.nextLine(); //clear buffer
           list.print();
           in.nextLine();
           break;
