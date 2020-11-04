@@ -8,8 +8,11 @@ public class TaskItem {
   private String title;
   private String description;
   private LocalDate dueDate;
+  private boolean completed;
 
   public TaskItem() {
+    completed = false;
+
     System.out.print("Task title: ");
     title = in.nextLine();
     System.out.print("Task description: ");
@@ -28,7 +31,7 @@ public class TaskItem {
 
   @Override
   public String toString() {
-    return "[" + dueDate + "]" + " " + title + ": " + description;
+    return (completed ? "*** " : "") + "[" + dueDate + "]" + " " + title + ": " + description;
   }
 
   public String getTitle() {
