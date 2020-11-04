@@ -15,11 +15,11 @@ public class TaskList {
   }
 
   public TaskItem edit(int index) {
-    System.out.println("Enter a new title for task " + index + ": ");
+    System.out.print("Enter a new title for task " + index + ": ");
     tasks.get(index).setTitle(in.nextLine());
-    System.out.println("Enter a new description for task " + index + ": ");
+    System.out.print("Enter a new description for task " + index + ": ");
     tasks.get(index).setDescription(in.nextLine());
-    System.out.println("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
+    System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
     tasks.get(index).setDueDate(LocalDate.parse(in.nextLine()));
     return tasks.get(index);
   }
