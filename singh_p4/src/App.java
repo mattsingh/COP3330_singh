@@ -72,6 +72,9 @@ public class App {
           list.edit(in.nextInt());
           break;
         case 4:
+          System.out.print("Which task will you remove? ");
+          list.print();
+          list.remove(in.nextInt());
           break;
         case 5:
           break;
