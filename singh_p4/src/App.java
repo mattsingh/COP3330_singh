@@ -67,13 +67,13 @@ public class App {
           list.add();
           break;
         case 3:
-          System.out.print("Which task will you edit? ");
           list.print();
+          System.out.print("Which task will you edit? ");
           list.edit(in.nextInt());
           break;
         case 4:
-          System.out.print("Which task will you remove? ");
           list.print();
+          System.out.print("Which task will you remove? ");
           list.remove(in.nextInt());
           break;
         case 5:
