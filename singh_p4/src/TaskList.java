@@ -1,26 +1,22 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class TaskList {
-  private static Scanner in = new Scanner(System.in);
+
   ArrayList<TaskItem> tasks = new ArrayList<>();
 
   public TaskList() {
     System.out.println("new task list has been created");
   }
 
-  public void add() {
-    tasks.add(TaskItem.createTaskItem());
+  public void add(TaskItem item) {
+    tasks.add(item);
   }
 
-  public TaskItem edit(int index) {
-    System.out.print("Enter a new title for task " + index + ": ");
-    tasks.get(index).setTitle(in.nextLine());
-    System.out.print("Enter a new description for task " + index + ": ");
-    tasks.get(index).setDescription(in.nextLine());
-    System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
-    tasks.get(index).setDueDate(LocalDate.parse(in.nextLine()));
+  public TaskItem edit(int index, String title, String description, LocalDate dueDate) {
+    tasks.get(index).setTitle(title);
+    tasks.get(index).setDescription(description);
+    tasks.get(index).setDueDate(dueDate);
     return tasks.get(index);
   }
 
@@ -35,5 +31,13 @@ public class TaskList {
 
     for(int i = 0; i < tasks.size(); i++)
       System.out.println(i + ") " + tasks.get(i));
+  }
+
+  public void markCompleted(int index) {
+    tasks.get(index).setCompleted(true);
+  }
+
+  public void unmarkCompleted(int index) {
+    tasks.get(index).setCompleted(false);
   }
 }

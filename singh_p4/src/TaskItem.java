@@ -1,43 +1,18 @@
-import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class TaskItem {
-  private static Scanner in = new Scanner(System.in);
 
   private String title;
   private String description;
   private LocalDate dueDate;
   private boolean completed;
 
+
   public TaskItem(String title, String description, LocalDate dueDate) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.completed = false;
-  }
-
-  public static TaskItem createTaskItem() {
-    String title;
-    String description;
-    LocalDate dueDate;
-
-    System.out.print("Task title: ");
-    title = in.nextLine();
-    System.out.print("Task description: ");
-    description = in.nextLine();
-    while(true) {
-      try {
-        System.out.print("Task due date (YYYY-MM-DD): ");
-        dueDate = LocalDate.parse(in.nextLine());
-        break;
-      } catch (DateTimeException e) {
-        System.out.println("Date must be in the format of YYYY-MM-DD");
-      }
-    }
-    System.out.println();
-
-    return new TaskItem(title, description, dueDate);
   }
 
   @Override
@@ -67,5 +42,13 @@ public class TaskItem {
 
   public void setDueDate(LocalDate dueDate) {
     this.dueDate = dueDate;
+  }
+
+  public boolean isCompleted() {
+    return completed;
+  }
+
+  public void setCompleted(boolean completed) {
+    this.completed = completed;
   }
 }

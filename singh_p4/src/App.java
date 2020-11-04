@@ -1,3 +1,5 @@
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class App {
@@ -57,21 +59,33 @@ public class App {
       do {
         System.out.print("> ");
         input = in.nextInt();
+        in.nextLine(); //clear buffer
       } while(input < 1 || input > 8);
 
       switch(input) {
         case 1:
-          in.nextLine(); //clear buffer
           list.print();
           in.nextLine();
           break;
         case 2:
-          list.add();
+          list.add(createTaskItem());
           break;
         case 3:
+          int index;
+          String title, description;
+          LocalDate dueDate;
+
           list.print();
           System.out.print("Which task will you edit? ");
-          list.edit(in.nextInt());
+          index = in.nextInt();
+          in.nextLine();
+          System.out.print("Enter a new title for task " + index + ": ");
+          title = in.nextLine();
+          System.out.print("Enter a new description for task " + index + ": ");
+          description = in.nextLine();
+          System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
+          dueDate = LocalDate.parse(in.nextLine());
+          list.edit(index, title, description, dueDate);
           break;
         case 4:
           list.print();
@@ -79,8 +93,12 @@ public class App {
           list.remove(in.nextInt());
           break;
         case 5:
+          System.out.print("Which task will you mark as completed? ");
+          list.markCompleted(in.nextInt());
           break;
         case 6:
+          System.out.print("Which task will you unmark as completed? ");
+          list.unmarkCompleted(in.nextInt());
           break;
         case 7:
           break;
@@ -88,5 +106,27 @@ public class App {
           return;
       }
     }
+  }
+  public static TaskItem createTaskItem() {
+    String title;
+    String description;
+    LocalDate dueDate;
+
+    System.out.print("Task title: ");
+    title = in.nextLine();
+    System.out.print("Task description: ");
+    description = in.nextLine();
+    while(true) {
+      try {
+        System.out.print("Task due date (YYYY-MM-DD): ");
+        dueDate = LocalDate.parse(in.nextLine());
+        break;
+      } catch (DateTimeException e) {
+        System.out.println("Date must be in the format of YYYY-MM-DD");
+      }
+    }
+    System.out.println();
+
+    return new TaskItem(title, description, dueDate);
   }
 }
