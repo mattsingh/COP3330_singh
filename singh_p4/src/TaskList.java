@@ -24,6 +24,10 @@ public class TaskList {
     return tasks.get(index);
   }
 
+  public TaskItem remove(int index) {
+    return tasks.remove(index);
+  }
+
   public void print() {
     System.out.println(
         "Current Tasks\n" +
