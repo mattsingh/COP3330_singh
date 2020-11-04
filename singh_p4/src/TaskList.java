@@ -35,6 +35,5 @@ public class TaskList {
 
     for(int i = 0; i < tasks.size(); i++)
       System.out.println(i + ") " + tasks.get(i));
-    in.nextLine();
   }
 }
