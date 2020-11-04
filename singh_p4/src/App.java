@@ -2,14 +2,13 @@ import java.util.Scanner;
 
 public class App {
   private static Scanner in = new Scanner(System.in);
+  private static int input;
 
   public static void main(String[] args) {
     mainMenu();
   }
 
   private static void mainMenu() {
-    int input = 0;
-
     while(true) {
       System.out.print(
           "Main Menu\n" +
@@ -27,19 +26,19 @@ public class App {
 
       switch(input) {
         case 1:
-          createTaskList();
+          TaskList list = new TaskList();
+          taskListMenu(list);
           break;
         case 2:
-          loadTaskList();
+//          loadTaskList();
           break;
         case 3:
-          break;
+          return;
       }
     }
   }
-  private static void taskListMenu(TaskList list) {
-    int input = 0;
 
+  private static void taskListMenu(TaskList list) {
     while (true) {
       System.out.println(
           "List Operation Menu\n" +
@@ -62,10 +61,15 @@ public class App {
 
       switch(input) {
         case 1:
+          list.print();
           break;
         case 2:
+          list.add();
           break;
         case 3:
+          System.out.print("Which task will you edit? ");
+          list.print();
+          list.edit(in.nextInt());
           break;
         case 4:
           break;
@@ -76,7 +80,7 @@ public class App {
         case 7:
           break;
         case 8:
-          break;
+          return;
       }
     }
   }
