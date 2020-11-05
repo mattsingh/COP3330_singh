@@ -9,6 +9,8 @@ public class TaskItem {
 
 
   public TaskItem(String title, String description, LocalDate dueDate) {
+    if(title.length() < 1)
+      throw new IllegalArgumentException("A title shall be 1 or more characters in length");
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
@@ -25,6 +27,8 @@ public class TaskItem {
   }
 
   public void setTitle(String title) {
+    if(title.length() < 1)
+      throw new IllegalArgumentException("A title shall be 1 or more characters in length");
     this.title = title;
   }
 

@@ -29,6 +29,7 @@ public class App {
       switch(input) {
         case 1:
           TaskList list = new TaskList();
+          System.out.println("new task list has been created");
           taskListMenu(list);
           break;
         case 2:
@@ -85,6 +86,7 @@ public class App {
           description = in.nextLine();
           System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
           dueDate = LocalDate.parse(in.nextLine());
+
           list.edit(index, title, description, dueDate);
           break;
         case 4:

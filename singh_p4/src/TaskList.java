@@ -5,10 +5,6 @@ public class TaskList {
 
   ArrayList<TaskItem> tasks = new ArrayList<>();
 
-  public TaskList() {
-    System.out.println("new task list has been created");
-  }
-
   public void add(TaskItem item) {
     tasks.add(item);
   }
@@ -39,5 +35,13 @@ public class TaskList {
 
   public void unmarkCompleted(int index) {
     tasks.get(index).setCompleted(false);
+  }
+
+  public int getSize() {
+    return tasks.size();
+  }
+
+  public TaskItem get(int index) {
+    return tasks.get(index);
   }
 }
