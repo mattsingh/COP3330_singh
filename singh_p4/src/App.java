@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.Formatter;
 import java.util.Scanner;
 
 public class App {
@@ -33,7 +36,7 @@ public class App {
           taskListMenu(list);
           break;
         case 2:
-//          loadTaskList();
+          loadTaskList();
           break;
         case 3:
           return;
@@ -103,6 +106,8 @@ public class App {
           list.unmarkCompleted(in.nextInt());
           break;
         case 7:
+          System.out.print("Enter the filename to save as: ");
+          saveTaskList(in.nextLine(), list);
           break;
         case 8:
           return;
