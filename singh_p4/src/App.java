@@ -100,6 +100,7 @@ public class App {
     }
   }
 
+
   private static void addTaskItem(TaskList list) {
     list.add(createTaskItem());
   }
