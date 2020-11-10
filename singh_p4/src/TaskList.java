@@ -1,7 +1,8 @@
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class TaskList {
+public class TaskList implements Serializable {
 
   ArrayList<TaskItem> tasks = new ArrayList<>();
 
@@ -43,5 +44,32 @@ public class TaskList {
 
   public TaskItem get(int index) {
     return tasks.get(index);
+  }
+
+  public void save(String name) {
+    try {
+      FileOutputStream fos = new FileOutputStream(name);
+      ObjectOutputStream oos = new ObjectOutputStream(fos);
+      oos.writeObject(this);
+      oos.close();
+      fos.close();
+    } catch(IOException ex) {
+      ex.printStackTrace();
+    }
+  }
+  public static TaskList load(String name) {
+    try {
+      FileInputStream fis = new FileInputStream(name);
+      ObjectInputStream ois = new ObjectInputStream(fis);
+      TaskList tasks = (TaskList) ois.readObject();
+      ois.close();
+      fis.close();
+      return tasks;
+    } catch(IOException ex) {
+      ex.printStackTrace();
+    } catch(ClassNotFoundException ex) {
+      ex.printStackTrace();
+    }
+    return null;
   }
 }

@@ -29,6 +29,8 @@ public class App {
         input = in.nextInt();
       } while(input < 1 || input > 3);
 
+      in.nextLine();
+
       switch(input) {
         case 1:
           TaskList list = new TaskList();
@@ -91,8 +93,7 @@ public class App {
           list.unmarkCompleted(in.nextInt());
           break;
         case 7:
-          System.out.print("Enter the filename to save as: ");
-          saveTaskList(in.nextLine(), list);
+          saveTaskList(list);
           break;
         case 8:
           return;
@@ -145,5 +146,17 @@ public class App {
     System.out.println();
 
     return new TaskItem(title, description, dueDate);
+  }
+
+  private static void saveTaskList(TaskList list) {
+    System.out.print("Enter the filename to save as: ");
+    String name = in.nextLine();
+    list.save(name);
+  }
+
+  private static void loadTaskList() {
+    System.out.print("Enter the filename to load: ");
+    String name = in.nextLine();
+    taskListMenu(TaskList.load(name));
   }
 }

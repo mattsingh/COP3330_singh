@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class TaskItem {
+public class TaskItem implements Serializable {
 
   private String title;
   private String description;
