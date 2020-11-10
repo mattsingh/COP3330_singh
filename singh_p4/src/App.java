@@ -72,25 +72,10 @@ public class App {
           in.nextLine();
           break;
         case 2:
-          list.add(createTaskItem());
+          addTaskItem(list);
           break;
         case 3:
-          int index;
-          String title, description;
-          LocalDate dueDate;
-
-          list.print();
-          System.out.print("Which task will you edit? ");
-          index = in.nextInt();
-          in.nextLine();
-          System.out.print("Enter a new title for task " + index + ": ");
-          title = in.nextLine();
-          System.out.print("Enter a new description for task " + index + ": ");
-          description = in.nextLine();
-          System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
-          dueDate = LocalDate.parse(in.nextLine());
-
-          list.edit(index, title, description, dueDate);
+          editTaskList(list);
           break;
         case 4:
           list.print();
@@ -114,6 +99,30 @@ public class App {
       }
     }
   }
+
+  private static void addTaskItem(TaskList list) {
+    list.add(createTaskItem());
+  }
+
+  private static void editTaskList(TaskList list) {
+    int index;
+    String title, description;
+    LocalDate dueDate;
+
+    list.print();
+    System.out.print("Which task will you edit? ");
+    index = in.nextInt();
+    in.nextLine();
+    System.out.print("Enter a new title for task " + index + ": ");
+    title = in.nextLine();
+    System.out.print("Enter a new description for task " + index + ": ");
+    description = in.nextLine();
+    System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
+    dueDate = LocalDate.parse(in.nextLine());
+
+    list.edit(index, title, description, dueDate);
+  }
+
   public static TaskItem createTaskItem() {
     String title;
     String description;
