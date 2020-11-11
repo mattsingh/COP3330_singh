@@ -65,8 +65,9 @@ public class App {
       do {
         System.out.print("> ");
         input = in.nextInt();
-        in.nextLine(); //clear buffer
       } while(input < 1 || input > 8);
+
+      in.nextLine(); //clear buffer
 
       switch(input) {
         case 1:
