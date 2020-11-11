@@ -145,7 +145,14 @@ public class TaskListTest {
   }
   @Test
   public void savedTaskListCanBeLoaded() {
-
+    TaskList tasks = new TaskList();
+    tasks.add(new TaskItem("Title", "Description", LocalDate.parse("2020-01-01")));
+    tasks.add(new TaskItem("Title 2", "Description 2", LocalDate.parse("2020-12-01")));
+    tasks.save("test.tmp");
+    TaskList loadedTask = TaskList.load(("test.tmp"));
+    for (int i = 0; i < loadedTask.getSize(); i++) {
+      Assertions.assertEquals(tasks.get(i).toString(), loadedTask.get(i).toString());
+    }
   }
   @Test
   public void uncompletingTaskItemChangesStatus() {
