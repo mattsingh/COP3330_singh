@@ -21,15 +21,6 @@ public class TaskList implements Serializable {
     return tasks.remove(index);
   }
 
-  public void print() {
-    System.out.println(
-        "Current Tasks\n" +
-        "-------------\n");
-
-    for(int i = 0; i < tasks.size(); i++)
-      System.out.println(i + ") " + tasks.get(i));
-  }
-
   public void markCompleted(int index) {
     tasks.get(index).setCompleted(true);
   }

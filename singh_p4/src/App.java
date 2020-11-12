@@ -71,7 +71,7 @@ public class App {
 
       switch(input) {
         case 1:
-          list.print();
+          printList(list);
           in.nextLine();
           break;
         case 2:
@@ -81,7 +81,7 @@ public class App {
           editTaskList(list);
           break;
         case 4:
-          list.print();
+          printList(list);
           System.out.print("Which task will you remove? ");
           list.remove(in.nextInt());
           break;
@@ -112,7 +112,7 @@ public class App {
     String title, description;
     LocalDate dueDate;
 
-    list.print();
+    printList(list);
     System.out.print("Which task will you edit? ");
     index = in.nextInt();
     in.nextLine();
@@ -147,6 +147,15 @@ public class App {
     System.out.println();
 
     return new TaskItem(title, description, dueDate);
+  }
+
+  private static void printList(TaskList list) {
+    System.out.println(
+        "Current Tasks\n" +
+            "-------------\n");
+
+    for(int i = 0; i < list.getSize(); i++)
+      System.out.println(i + ") " + list.get(i));
   }
 
   private static void saveTaskList(TaskList list) {
