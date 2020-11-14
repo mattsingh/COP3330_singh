@@ -1,8 +1,5 @@
-import java.io.File;
-import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.Formatter;
 import java.util.Scanner;
 
 public class App {
