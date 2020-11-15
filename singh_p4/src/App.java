@@ -1,5 +1,6 @@
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -116,6 +117,8 @@ public class App {
       list.add(createTaskItem());
     } catch (IllegalArgumentException e) {
       System.out.println("WARNING: " + e.getMessage() + "; task not created\n");
+    } catch (DateTimeParseException e) {
+      System.out.println("WARNING: invalid due date; task not created\n");
     }
   }
 
@@ -147,15 +150,8 @@ public class App {
     title = in.nextLine();
     System.out.print("Task description: ");
     description = in.nextLine();
-    while(true) {
-      try {
-        System.out.print("Task due date (YYYY-MM-DD): ");
-        dueDate = LocalDate.parse(in.nextLine());
-        break;
-      } catch (DateTimeException e) {
-        System.out.println("Date must be in the format of YYYY-MM-DD");
-      }
-    }
+    System.out.print("Task due date (YYYY-MM-DD): ");
+    dueDate = LocalDate.parse(in.nextLine());
     System.out.println();
 
     return new TaskItem(title, description, dueDate);
