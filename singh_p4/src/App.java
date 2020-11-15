@@ -1,5 +1,6 @@
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -23,10 +24,14 @@ public class App {
 
       do {
         System.out.print("> ");
-        input = in.nextInt();
+        try {
+          input = in.nextInt();
+        } catch (InputMismatchException e) {
+          System.out.println("WARNING: input must be an integer");;
+        } finally {
+          in.nextLine(); //clear buffer
+        }
       } while(input < 1 || input > 3);
-
-      in.nextLine();
 
       switch(input) {
         case 1:
@@ -61,10 +66,14 @@ public class App {
 
       do {
         System.out.print("> ");
-        input = in.nextInt();
+        try {
+          input = in.nextInt();
+        } catch (InputMismatchException e) {
+          e.printStackTrace();
+          System.out.println("WARNING: input must be an integer");
+          in.nextLine(); //clear buffer
+        }
       } while(input < 1 || input > 8);
-
-      in.nextLine(); //clear buffer
 
       switch(input) {
         case 1:
