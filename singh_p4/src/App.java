@@ -27,7 +27,7 @@ public class App {
         try {
           input = in.nextInt();
         } catch (InputMismatchException e) {
-          System.out.println("WARNING: input must be an integer");;
+          System.out.println("WARNING: input must be an integer\n");;
         } finally {
           in.nextLine(); //clear buffer
         }
@@ -36,7 +36,8 @@ public class App {
       switch(input) {
         case 1:
           TaskList list = new TaskList();
-          System.out.println("new task list has been created");
+          if(list != null)
+            System.out.println("new task list has been created");
           taskListMenu(list);
           break;
         case 2:
@@ -69,11 +70,12 @@ public class App {
         try {
           input = in.nextInt();
         } catch (InputMismatchException e) {
-          e.printStackTrace();
-          System.out.println("WARNING: input must be an integer");
+          System.out.println("WARNING: input must be an integer\n");
           in.nextLine(); //clear buffer
         }
       } while(input < 1 || input > 8);
+
+      in.nextLine(); //clear buffer
 
       switch(input) {
         case 1:
@@ -110,7 +112,11 @@ public class App {
 
 
   private static void addTaskItem(TaskList list) {
-    list.add(createTaskItem());
+    try {
+      list.add(createTaskItem());
+    } catch (IllegalArgumentException e) {
+      System.out.println("WARNING: " + e.getMessage() + "; task not created\n");
+    }
   }
 
   private static void editTaskList(TaskList list) {
