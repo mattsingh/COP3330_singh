@@ -38,23 +38,15 @@ public class TaskList implements Serializable {
   }
 
   public void save(String name) {
-    try {
-      FileOutputStream fos = new FileOutputStream(name);
-      ObjectOutputStream oos = new ObjectOutputStream(fos);
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(name))) {
       oos.writeObject(this);
-      oos.close();
-      fos.close();
     } catch(IOException ex) {
       ex.printStackTrace();
     }
   }
   public static TaskList load(String name) {
-    try {
-      FileInputStream fis = new FileInputStream(name);
-      ObjectInputStream ois = new ObjectInputStream(fis);
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(name))) {
       TaskList tasks = (TaskList) ois.readObject();
-      ois.close();
-      fis.close();
       return tasks;
     } catch(IOException ex) {
       ex.printStackTrace();
