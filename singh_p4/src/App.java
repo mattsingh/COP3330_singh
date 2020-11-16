@@ -199,7 +199,7 @@ public class App {
 
   private static void saveTaskList(TaskList list) {
     try {
-      System.out.print("Enter the filename to save as: ");
+      System.out.print("Enter the filename to save as (no file extension): ");
       String name = in.nextLine();
       list.save(name + fileExtension);
     } catch (IllegalStateException e) {
@@ -209,7 +209,7 @@ public class App {
 
   private static void loadTaskList() {
     try {
-      System.out.print("Enter the filename to load: ");
+      System.out.print("Enter the filename to load (no file extension): ");
       String name = in.nextLine();
       taskListMenu(TaskList.load(name + fileExtension));
     } catch (IOException e) {
