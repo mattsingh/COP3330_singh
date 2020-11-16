@@ -25,11 +25,9 @@ public class App {
       do {
         System.out.print("> ");
         try {
-          input = in.nextInt();
-        } catch (InputMismatchException e) {
-          System.out.println("WARNING: input must be an integer\n");
-        } finally {
-          in.nextLine(); //clear buffer
+          input = Integer.parseInt(in.nextLine());
+        } catch (NumberFormatException e) {
+          System.out.println("WARNING: input must be an integer");
         }
       } while(input < 1 || input > 3);
 
@@ -68,14 +66,11 @@ public class App {
       do {
         System.out.print("> ");
         try {
-          input = in.nextInt();
-        } catch (InputMismatchException e) {
-          System.out.println("WARNING: input must be an integer\n");
-          in.nextLine(); //clear buffer
+          input = Integer.parseInt(in.nextLine());
+        } catch (NumberFormatException e) {
+          System.out.println("WARNING: input must be an integer");
         }
       } while(input < 1 || input > 8);
-
-      in.nextLine(); //clear buffer
 
       switch(input) {
         case 1:
