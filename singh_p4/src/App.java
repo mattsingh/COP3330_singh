@@ -5,7 +5,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class App {
-  private static Scanner in = new Scanner(System.in);
+  private static final Scanner in = new Scanner(System.in);
   private static String fileExtension = ".tmp";
 
   public static void main(String[] args) {
