@@ -28,7 +28,7 @@ public class App {
         try {
           input = in.nextInt();
         } catch (InputMismatchException e) {
-          System.out.println("WARNING: input must be an integer\n");;
+          System.out.println("WARNING: input must be an integer\n");
         } finally {
           in.nextLine(); //clear buffer
         }
@@ -127,18 +127,26 @@ public class App {
     String title, description;
     LocalDate dueDate;
 
-    printList(list);
-    System.out.print("Which task will you edit? ");
-    index = in.nextInt();
-    in.nextLine();
-    System.out.print("Enter a new title for task " + index + ": ");
-    title = in.nextLine();
-    System.out.print("Enter a new description for task " + index + ": ");
-    description = in.nextLine();
-    System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
-    dueDate = LocalDate.parse(in.nextLine());
+    try {
+      printList(list);
+      System.out.print("Which task will you edit? ");
+      index = in.nextInt();
+      in.nextLine();
+      System.out.print("Enter a new title for task " + index + ": ");
+      title = in.nextLine();
+      System.out.print("Enter a new description for task " + index + ": ");
+      description = in.nextLine();
+      System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + index + ": ");
+      dueDate = LocalDate.parse(in.nextLine());
 
-    list.edit(index, title, description, dueDate);
+      list.edit(index, title, description, dueDate);
+    } catch (DateTimeParseException e) {
+      System.out.println("WARNING: invalid due date; task not edited\n");
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("WARNING: invalid index; task not edited");
+    } catch (IllegalArgumentException e) {
+      System.out.println("WARNING: " + e.getMessage() + "; task not edited\n");
+    }
   }
 
   public static TaskItem createTaskItem() {
