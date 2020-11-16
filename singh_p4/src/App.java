@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class App {
   private static Scanner in = new Scanner(System.in);
+  private static String fileExtension = ".tmp";
 
   public static void main(String[] args) {
     mainMenu();
@@ -198,7 +199,7 @@ public class App {
     try {
       System.out.print("Enter the filename to save as: ");
       String name = in.nextLine();
-      list.save(name);
+      list.save(name + fileExtension);
     } catch (IllegalStateException e) {
       System.out.println("WARNING: " + e.getMessage() + "; task list not saved\n");
     }
@@ -207,6 +208,6 @@ public class App {
   private static void loadTaskList() {
     System.out.print("Enter the filename to load: ");
     String name = in.nextLine();
-    taskListMenu(TaskList.load(name));
+    taskListMenu(TaskList.load(name + fileExtension));
   }
 }
