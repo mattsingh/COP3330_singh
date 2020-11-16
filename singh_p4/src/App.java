@@ -1,3 +1,4 @@
+import java.io.InvalidObjectException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
@@ -195,9 +196,15 @@ public class App {
   }
 
   private static void saveTaskList(TaskList list) {
-    System.out.print("Enter the filename to save as: ");
-    String name = in.nextLine();
-    list.save(name);
+    try {
+      if(list.getSize() == 0)
+        throw new InvalidObjectException("task list is empty");
+      System.out.print("Enter the filename to save as: ");
+      String name = in.nextLine();
+      list.save(name);
+    } catch (InvalidObjectException e) {
+      System.out.println("WARNING: " + e.getMessage() + "; task list not saved");
+    }
   }
 
   private static void loadTaskList() {
