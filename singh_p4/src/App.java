@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
@@ -11,9 +13,9 @@ public class App {
   }
 
   private static void mainMenu() {
-    int input = -1;
-
     while(true) {
+      int input = -1;
+
       System.out.print(
           "Main Menu\n" +
           "---------\n" +
@@ -49,8 +51,9 @@ public class App {
   }
 
   private static void taskListMenu(TaskList list) {
-    int input = -1;
     while (true) {
+      int input = -1;
+
       System.out.println(
           "List Operation Menu\n" +
           "---------\n" +
@@ -206,8 +209,12 @@ public class App {
   }
 
   private static void loadTaskList() {
-    System.out.print("Enter the filename to load: ");
-    String name = in.nextLine();
-    taskListMenu(TaskList.load(name + fileExtension));
+    try {
+      System.out.print("Enter the filename to load: ");
+      String name = in.nextLine();
+      taskListMenu(TaskList.load(name + fileExtension));
+    } catch (IOException e) {
+      System.out.println("WARNING: file not found\n");
+    }
   }
 }

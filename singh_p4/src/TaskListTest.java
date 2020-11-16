@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class TaskListTest {
@@ -146,7 +147,7 @@ public class TaskListTest {
     });
   }
   @Test
-  public void savedTaskListCanBeLoaded() {
+  public void savedTaskListCanBeLoaded() throws IOException {
     TaskList tasks = new TaskList();
     tasks.add(new TaskItem("Title", "Description", LocalDate.parse("2020-01-01")));
     tasks.add(new TaskItem("Title 2", "Description 2", LocalDate.parse("2020-12-01")));

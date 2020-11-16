@@ -46,11 +46,11 @@ public class TaskList implements Serializable {
       ex.printStackTrace();
     }
   }
-  public static TaskList load(String name) {
+  public static TaskList load(String name) throws IOException {
     try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(name))) {
       return (TaskList) ois.readObject();
     } catch(IOException ex) {
-      ex.printStackTrace();
+      throw ex;
     } catch(ClassNotFoundException ex) {
       ex.printStackTrace();
     }
