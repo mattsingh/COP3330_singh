@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class App {
   private static Scanner in = new Scanner(System.in);
-  private static int input;
 
   public static void main(String[] args) {
     mainMenu();
   }
 
   private static void mainMenu() {
+    int input = -1;
+
     while(true) {
       System.out.print(
           "Main Menu\n" +
@@ -47,6 +48,7 @@ public class App {
   }
 
   private static void taskListMenu(TaskList list) {
+    int input = -1;
     while (true) {
       System.out.println(
           "List Operation Menu\n" +
@@ -105,7 +107,7 @@ public class App {
   private static void unmarkTaskAsCompleted(TaskList list) {
     try {
       System.out.print("Which task will you unmark as completed? ");
-      list.unmarkCompleted(in.nextInt());
+      list.unmarkCompleted(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
       System.out.println("WARNING: invalid index; task item left as completed");
     }
@@ -114,7 +116,7 @@ public class App {
   private static void markTaskAsCompleted(TaskList list) {
     try {
       System.out.print("Which task will you mark as completed? ");
-      list.markCompleted(in.nextInt());
+      list.markCompleted(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
       System.out.println("WARNING: invalid index; task item not marked as completed");
     }
@@ -123,7 +125,7 @@ public class App {
   private static void removeTaskItem(TaskList list) {
     try {
       System.out.print("Which task will you remove? ");
-      list.remove(in.nextInt());
+      list.remove(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
       System.out.println("WARNING: invalid index; task item not removed");
     }
