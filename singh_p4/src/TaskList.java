@@ -49,8 +49,6 @@ public class TaskList implements Serializable {
   public static TaskList load(String name) throws IOException {
     try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(name))) {
       return (TaskList) ois.readObject();
-    } catch(IOException ex) {
-      throw ex;
     } catch(ClassNotFoundException ex) {
       ex.printStackTrace();
     }
