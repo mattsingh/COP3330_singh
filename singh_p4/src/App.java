@@ -110,7 +110,7 @@ public class App {
       System.out.print("Which task will you unmark as completed? ");
       list.unmarkCompleted(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
-      System.out.println("WARNING: invalid index; task item left as completed");
+      System.out.println("WARNING: invalid index; task item left as completed\n");
     }
   }
 
@@ -119,7 +119,7 @@ public class App {
       System.out.print("Which task will you mark as completed? ");
       list.markCompleted(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
-      System.out.println("WARNING: invalid index; task item not marked as completed");
+      System.out.println("WARNING: invalid index; task item not marked as completed\n");
     }
   }
 
@@ -128,7 +128,7 @@ public class App {
       System.out.print("Which task will you remove? ");
       list.remove(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
-      System.out.println("WARNING: invalid index; task item not removed");
+      System.out.println("WARNING: invalid index; task item not removed\n");
     }
   }
 
@@ -164,7 +164,7 @@ public class App {
     } catch (DateTimeParseException e) {
       System.out.println("WARNING: invalid due date; task not edited\n");
     } catch (IndexOutOfBoundsException e) {
-      System.out.println("WARNING: invalid index; task not edited");
+      System.out.println("WARNING: invalid index; task not edited\n");
     } catch (IllegalArgumentException e) {
       System.out.println("WARNING: " + e.getMessage() + "; task not edited\n");
     }
@@ -203,7 +203,7 @@ public class App {
       String name = in.nextLine();
       list.save(name);
     } catch (InvalidObjectException e) {
-      System.out.println("WARNING: " + e.getMessage() + "; task list not saved");
+      System.out.println("WARNING: " + e.getMessage() + "; task list not saved\n");
     }
   }
 
