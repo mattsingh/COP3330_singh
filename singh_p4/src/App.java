@@ -113,6 +113,8 @@ public class App {
       list.unmarkCompleted(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
       System.out.println("WARNING: invalid index; task item left as completed\n");
+    } catch (NumberFormatException e) {
+      System.out.println("WARNING: input must be an integer");
     }
   }
 
@@ -122,6 +124,8 @@ public class App {
       list.markCompleted(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
       System.out.println("WARNING: invalid index; task item not marked as completed\n");
+    } catch (NumberFormatException e) {
+      System.out.println("WARNING: input must be an integer");
     }
   }
 
@@ -131,6 +135,8 @@ public class App {
       list.remove(Integer.parseInt(in.nextLine()));
     } catch (IndexOutOfBoundsException e) {
       System.out.println("WARNING: invalid index; task item not removed\n");
+    } catch (NumberFormatException e) {
+      System.out.println("WARNING: input must be an integer");
     }
   }
 
