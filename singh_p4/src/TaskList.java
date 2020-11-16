@@ -38,6 +38,8 @@ public class TaskList implements Serializable {
   }
 
   public void save(String name) {
+    if(tasks.isEmpty())
+      throw new IllegalStateException("task list is empty");
     try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(name))) {
       oos.writeObject(this);
     } catch(IOException ex) {

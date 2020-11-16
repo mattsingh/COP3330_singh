@@ -197,12 +197,10 @@ public class App {
 
   private static void saveTaskList(TaskList list) {
     try {
-      if(list.getSize() == 0)
-        throw new InvalidObjectException("task list is empty");
       System.out.print("Enter the filename to save as: ");
       String name = in.nextLine();
       list.save(name);
-    } catch (InvalidObjectException e) {
+    } catch (IllegalStateException e) {
       System.out.println("WARNING: " + e.getMessage() + "; task list not saved\n");
     }
   }
