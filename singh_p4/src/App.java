@@ -74,6 +74,7 @@ public class App {
       switch(input) {
         case 1:
           printList(list);
+          System.out.print("Press ENTER to continue");
           in.nextLine();
           break;
         case 2:
@@ -84,16 +85,13 @@ public class App {
           break;
         case 4:
           printList(list);
-          System.out.print("Which task will you remove? ");
-          list.remove(in.nextInt());
+          removeTaskItem(list);
           break;
         case 5:
-          System.out.print("Which task will you mark as completed? ");
-          list.markCompleted(in.nextInt());
+          markTaskAsCompleted(list);
           break;
         case 6:
-          System.out.print("Which task will you unmark as completed? ");
-          list.unmarkCompleted(in.nextInt());
+          unmarkTaskAsCompleted(list);
           break;
         case 7:
           saveTaskList(list);
@@ -101,6 +99,33 @@ public class App {
         case 8:
           return;
       }
+    }
+  }
+
+  private static void unmarkTaskAsCompleted(TaskList list) {
+    try {
+      System.out.print("Which task will you unmark as completed? ");
+      list.unmarkCompleted(in.nextInt());
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("WARNING: invalid index; task item left as completed");
+    }
+  }
+
+  private static void markTaskAsCompleted(TaskList list) {
+    try {
+      System.out.print("Which task will you mark as completed? ");
+      list.markCompleted(in.nextInt());
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("WARNING: invalid index; task item not marked as completed");
+    }
+  }
+
+  private static void removeTaskItem(TaskList list) {
+    try {
+      System.out.print("Which task will you remove? ");
+      list.remove(in.nextInt());
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("WARNING: invalid index; task item not removed");
     }
   }
 
