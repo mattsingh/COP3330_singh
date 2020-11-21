@@ -4,14 +4,15 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class App {
-  private static final Scanner in = new Scanner(System.in);
+  private final Scanner in = new Scanner(System.in);
   private static String fileExtension = ".tmp";
 
   public static void main(String[] args) {
-    mainMenu();
+    App taskApp = new App();
+    taskApp.mainMenu();
   }
 
-  private static void mainMenu() {
+  private void mainMenu() {
     while(true) {
       int input = -1;
 
@@ -49,7 +50,7 @@ public class App {
     }
   }
 
-  private static void taskListMenu(TaskList list) {
+  private void taskListMenu(TaskList list) {
     while (true) {
       int input = -1;
 
@@ -107,7 +108,7 @@ public class App {
     }
   }
 
-  private static void unmarkTaskAsCompleted(TaskList list) {
+  private void unmarkTaskAsCompleted(TaskList list) {
     try {
       System.out.print("Which task will you unmark as completed? ");
       list.unmarkCompleted(Integer.parseInt(in.nextLine()));
@@ -118,7 +119,7 @@ public class App {
     }
   }
 
-  private static void markTaskAsCompleted(TaskList list) {
+  private void markTaskAsCompleted(TaskList list) {
     try {
       System.out.print("Which task will you mark as completed? ");
       list.markCompleted(Integer.parseInt(in.nextLine()));
@@ -129,7 +130,7 @@ public class App {
     }
   }
 
-  private static void removeTaskItem(TaskList list) {
+  private void removeTaskItem(TaskList list) {
     try {
       System.out.print("Which task will you remove? ");
       list.remove(Integer.parseInt(in.nextLine()));
@@ -141,7 +142,7 @@ public class App {
   }
 
 
-  private static void addTaskItem(TaskList list) {
+  private void addTaskItem(TaskList list) {
     try {
       list.add(createTaskItem());
     } catch (IllegalArgumentException e) {
@@ -151,7 +152,7 @@ public class App {
     }
   }
 
-  private static void editTaskList(TaskList list) {
+  private void editTaskList(TaskList list) {
     int index;
     String title, description;
     LocalDate dueDate;
@@ -178,7 +179,7 @@ public class App {
     }
   }
 
-  public static TaskItem createTaskItem() {
+  public TaskItem createTaskItem() {
     String title;
     String description;
     LocalDate dueDate;
@@ -194,7 +195,7 @@ public class App {
     return new TaskItem(title, description, dueDate);
   }
 
-  private static void printList(TaskList list) {
+  private void printList(TaskList list) {
     System.out.println(
         "Current Tasks\n" +
             "-------------\n");
@@ -203,7 +204,7 @@ public class App {
       System.out.println(i + ") " + list.get(i));
   }
 
-  private static void saveTaskList(TaskList list) {
+  private void saveTaskList(TaskList list) {
     try {
       System.out.print("Enter the filename to save as (no file extension): ");
       String name = in.nextLine();
@@ -213,7 +214,7 @@ public class App {
     }
   }
 
-  private static void loadTaskList() {
+  private void loadTaskList() {
     try {
       System.out.print("Enter the filename to load (no file extension): ");
       String name = in.nextLine();
