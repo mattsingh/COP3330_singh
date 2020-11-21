@@ -3,12 +3,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-public class App {
+public class TaskApp {
   private final Scanner in = new Scanner(System.in);
   private static String fileExtension = ".tmp";
 
   public static void main(String[] args) {
-    App taskApp = new App();
+    TaskApp taskApp = new TaskApp();
     taskApp.mainMenu();
   }
 
