@@ -6,8 +6,6 @@ public class AppSelector {
   public static void main(String[] args) {
     AppSelector as = new AppSelector();
     as.appMenu();
-    TaskApp taskApp = new TaskApp();
-    taskApp.mainMenu();
   }
 
   private void appMenu() {
@@ -34,12 +32,12 @@ public class AppSelector {
 
       switch(input) {
         case 1:
-          TaskApp tApp = new TaskApp();
-          tApp.mainMenu();
+          TaskApp taskApp = new TaskApp();
+          taskApp.mainMenu();
           break;
         case 2:
-          ContactApp cApp = new ContactApp();
-          cApp.mainMenu();
+          ContactApp contactApp = new ContactApp();
+          contactApp.mainMenu();
           break;
         case 3:
           return;
