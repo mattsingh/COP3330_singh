@@ -7,11 +7,6 @@ public class TaskApp {
   private final Scanner in = new Scanner(System.in);
   private static String fileExtension = ".tmp";
 
-  public static void main(String[] args) {
-    TaskApp taskApp = new TaskApp();
-    taskApp.mainMenu();
-  }
-
   public void mainMenu() {
     while(true) {
       int input = -1;
