@@ -12,7 +12,7 @@ public class TaskApp {
     taskApp.mainMenu();
   }
 
-  private void mainMenu() {
+  public void mainMenu() {
     while(true) {
       int input = -1;
 
