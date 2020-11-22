@@ -10,10 +10,11 @@ public class ContactList {
 
   public ContactItem edit(int index, String firstName, String lastName, String phoneNumber, String emailAddress) {
     contacts.set(index, new ContactItem(firstName, lastName, phoneNumber, emailAddress));
+    return contacts.get(index);
   }
 
   public ContactItem remove(int index) {
-    contacts.remove(index);
+    return contacts.remove(index);
   }
 
   public ContactItem get(int index) {
