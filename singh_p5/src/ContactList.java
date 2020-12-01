@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 
 public class ContactList {
@@ -23,5 +24,23 @@ public class ContactList {
 
   public int getSize() {
     return contacts.size();
+  }
+
+  public void save(String name) {
+    if(contacts.isEmpty())
+      throw new IllegalStateException("contact list is empty");
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(name))) {
+      oos.writeObject(this);
+    } catch(IOException ex) {
+      ex.printStackTrace();
+    }
+  }
+  public static ContactList load(String name) throws IOException {
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(name))) {
+      return (ContactList) ois.readObject();
+    } catch(ClassNotFoundException ex) {
+      ex.printStackTrace();
+    }
+    return null;
   }
 }
