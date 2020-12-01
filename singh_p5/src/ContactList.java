@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class ContactList implements Serializable{
 
-  ArrayList<ContactItem> contacts = new ArrayList<>();
+  private ArrayList<ContactItem> contacts = new ArrayList<>();
 
   public void add(ContactItem item) {
     contacts.add(item);

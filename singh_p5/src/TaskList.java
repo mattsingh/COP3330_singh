@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TaskList implements Serializable {
 
-  ArrayList<TaskItem> tasks = new ArrayList<>();
+  private ArrayList<TaskItem> tasks = new ArrayList<>();
 
   public void add(TaskItem item) {
     tasks.add(item);
