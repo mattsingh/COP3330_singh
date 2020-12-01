@@ -3,10 +3,10 @@ import java.util.InputMismatchException;
 
 public class ContactItem implements Serializable {
 
-  private String firstName;
-  private String lastName;
-  private String phoneNumber;
-  private String emailAddress;
+  private final String firstName;
+  private final String lastName;
+  private final String phoneNumber;
+  private final String emailAddress;
 
   public ContactItem(String firstName, String lastName, String phoneNumber, String emailAddress) {
     if(firstName.isBlank() && lastName.isBlank() && phoneNumber.isBlank() && emailAddress.isBlank())
