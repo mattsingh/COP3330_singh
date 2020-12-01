@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class ContactList {
+public class ContactList implements Serializable{
 
   ArrayList<ContactItem> contacts = new ArrayList<>();
 

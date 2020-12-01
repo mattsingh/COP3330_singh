@@ -1,4 +1,6 @@
-public class ContactItem {
+import java.io.Serializable;
+
+public class ContactItem implements Serializable {
 
   private String firstName;
   private String lastName;
