@@ -8,6 +8,8 @@ public class ContactItem implements Serializable {
   private String emailAddress;
 
   public ContactItem(String firstName, String lastName, String phoneNumber, String emailAddress) {
+    if(firstName.isBlank() || lastName.isBlank() || phoneNumber.isBlank() ||emailAddress.isBlank())
+      throw new IllegalArgumentException("a contact must have at least one field");
     this.firstName = firstName;
     this.lastName = lastName;
     this.phoneNumber = phoneNumber;
