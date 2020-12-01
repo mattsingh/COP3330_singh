@@ -163,12 +163,7 @@ public class ContactApp {
   }
 
   private void printList(ContactList list) {
-    System.out.println(
-            "Current Tasks\n" +
-                    "-------------\n");
-
-    for(int i = 0; i < list.getSize(); i++)
-      System.out.println(i + ") " + list.get(i));
+    System.out.println(list);
   }
 
   private void saveContactList(ContactList list) {
