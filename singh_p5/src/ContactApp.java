@@ -51,17 +51,14 @@ public class ContactApp {
 
       System.out.println(
               "List Operation Menu\n" +
-                      "---------\n" +
-                      "\n" +
-                      "1) view the list\n" +
-                      "2) add an item\n" +
-                      "3) edit an item\n" +
-                      "4) remove an item\n" +
-                      "5) mark an item as completed\n" +
-                      "6) unmark an item as completed\n" +
-                      "7) save the current list\n" +
-                      "8) quit to the main menu\n" +
-                      "\n");
+              "---------\n" +
+              "\n" +
+              "1) view the list\n" +
+              "2) add an item\n" +
+              "3) edit an item\n" +
+              "4) remove an item\n" +
+              "5) save the current list\n" +
+              "6) quit to the main menu");
 
       do {
         System.out.print("> ");
