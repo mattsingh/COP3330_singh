@@ -26,6 +26,23 @@ public class ContactList {
     return contacts.size();
   }
 
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder()
+            .append("Current Contacts\n" +
+                    "-------------\n" +
+                    "\n");
+    for (int i = 0; i < contacts.size(); i++) {
+      ContactItem contact = contacts.get(i);
+      sb.append(
+              i + ") Name: " + contact.getFirstName() + " " + contact.getLastName() + "\n" +
+              "   Phone: " + contact.getPhoneNumber() + "\n" +
+              "   Email: " + contact.getEmailAddress() + "\n");
+    }
+
+    return sb.toString();
+  }
+
   public void save(String name) {
     if(contacts.isEmpty())
       throw new IllegalStateException("contact list is empty");
