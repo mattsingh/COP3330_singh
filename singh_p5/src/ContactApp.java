@@ -110,9 +110,7 @@ public class ContactApp {
   private void addContactItem(ContactList list) {
     try {
       list.add(createContactItem());
-    } catch (IllegalArgumentException e) {
-      System.out.println("WARNING: " + e.getMessage() + "; contact not created\n");
-    } catch (InputMismatchException e) {
+    } catch (IllegalArgumentException | InputMismatchException e) {
       System.out.println("WARNING: " + e.getMessage() + "; contact not created\n");
     }
   }
