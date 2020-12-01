@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ContactApp {
@@ -111,8 +112,8 @@ public class ContactApp {
       list.add(createContactItem());
     } catch (IllegalArgumentException e) {
       System.out.println("WARNING: " + e.getMessage() + "; contact not created\n");
-    } catch (DateTimeParseException e) {
-      System.out.println("WARNING: invalid due date; contact not created\n");
+    } catch (InputMismatchException e) {
+      System.out.println("WARNING: " + e.getMessage() + "; contact not created\n");
     }
   }
 
