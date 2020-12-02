@@ -33,7 +33,7 @@ public class ContactList implements Serializable{
                     "-------------\n" +
                     "\n");
     for (int i = 0; i < contacts.size(); i++) {
-      sb.append("" + i + contacts.get(i));
+      sb.append(i + ") "+ contacts.get(i));
     }
 
     return sb.toString();

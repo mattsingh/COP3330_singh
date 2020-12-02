@@ -43,9 +43,9 @@ public class ContactItem implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder()
-            .append(") Name: " + this.firstName + " " + this.lastName + "\n" +
-                    "   Phone: " + this.phoneNumber + "\n" +
-                    "   Email: " + this.emailAddress + "\n");
+            .append("Name: " + this.firstName + " " + this.lastName + "\n" +
+                    "Phone: " + this.phoneNumber + "\n" +
+                    "Email: " + this.emailAddress + "\n");
 
 
     return sb.toString();
